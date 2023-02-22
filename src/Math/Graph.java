@@ -1,8 +1,13 @@
+package Math;
+
+import interfaces.PathFinder;
+
 import java.util.Objects;
 
 public abstract class Graph<V> {
-    private V[] vertices;
-    private Edge<V>[] edges;
+    protected V[] vertices;
+    protected Edge<V>[] edges;
+    PathFinder vagabond;
     static class Edge<V>{
         V start;
         V end;
