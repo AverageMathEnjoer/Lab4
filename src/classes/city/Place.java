@@ -7,16 +7,18 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Place extends Statused {
-    protected Furniture[] furnitures;
+
     protected String desciption;
-    public Place(String name, Status status, Furniture[] furnitures, String desciption){
+    public Place(String name, Status status, String desciption){
         super(name, status);
-        this.furnitures = furnitures;
         this.desciption = desciption;
     }
     public Place(String name){
+        this(name, "Никто это не описывал");
+    }
+    public Place(String name, String desciption){
         super(name, Status.NONE);
-        this.desciption = "Никто это еще не описал";
+        this.desciption = desciption;
     }
 
     public String getDesciption() {
@@ -32,13 +34,16 @@ public class Place extends Statused {
         if (this == o) return true;
         if (!(o instanceof Place)) return false;
         Place place = (Place) o;
-        return Arrays.equals(furnitures, place.furnitures) && Objects.equals(getDesciption(), place.getDesciption());
+        return Objects.equals(getDesciption(), place.getDesciption());
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(getDesciption());
-        result = 17 * result + Arrays.hashCode(furnitures);
-        return result;
+        return Objects.hash(getDesciption());
+    }
+
+    @Override
+    public String toString() {
+        return "{" + getName() + "}";
     }
 }
