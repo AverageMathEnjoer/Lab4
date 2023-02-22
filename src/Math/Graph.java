@@ -8,7 +8,7 @@ public abstract class Graph<V> {
     protected V[] vertices;
     protected Edge<V>[] edges;
     PathFinder vagabond;
-    static class Edge<V>{
+    public static class Edge<V>{
         V start;
         V end;
         public Edge(V start, V end){
