@@ -1,7 +1,6 @@
 package classes.city;
 
-import Math.*;
-import enums.*;
+import math.*;
 
 public final class City extends Graph<Place> {
     String title;

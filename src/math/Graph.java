@@ -1,4 +1,4 @@
-package Math;
+package math;
 
 import classes.exceptions.VertexNotInGraphException;
 import interfaces.PathFinder;

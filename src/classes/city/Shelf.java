@@ -2,9 +2,10 @@ package classes.city;
 
 import enums.Color;
 import enums.Status;
+import static math.Magic.chanceMath;
 
 public class Shelf extends Furniture{
-    int capacity;
+    int capacity = 0;
     int count_of_books;
 
     Shelf(String name, Status status, Color color, int capacity){
@@ -22,5 +23,12 @@ public class Shelf extends Furniture{
 
     public int getCapacity() {
         return capacity;
+    }
+
+    public void bend(){
+        if(chanceMath(0.17, getCount(), getCapacity())){
+            setStatus(Status.BENT);
+            System.out.println("Полка гнется");
+        }
     }
 }

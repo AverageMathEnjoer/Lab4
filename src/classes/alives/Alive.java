@@ -1,11 +1,14 @@
 package classes.alives;
 
+import classes.Statused;
 import classes.city.Place;
 import classes.exceptions.VertexNotInGraphException;
 import enums.Status;
-import interfaces.*;
-import classes.Statused;
-import Math.Graph;
+import interfaces.Movable;
+import interfaces.Transportable;
+import math.Graph;
+
+import math.Magic;
 
 public abstract class Alive extends Statused implements Movable{
     protected Place place;
@@ -36,11 +39,25 @@ public abstract class Alive extends Statused implements Movable{
 
     @Override
     public void moveIt(Graph<Place> graph, Place place, Transportable obj) {
-
+        //Это потом
     }
 
     @Override
     public Place getPlace() {
         return place;
+    }
+
+    public int getLuck() {
+        return luck;
+    }
+    protected void takeHisLuck(Alive alive){
+        luck += Magic.randDrop(alive.getLuck(), 0.13);
+    }
+    public void makeSound(){
+        System.out.println("был издан звук");
+    }
+
+    public void snore(){
+        System.out.println("хрхрхрхрххрх");
     }
 }

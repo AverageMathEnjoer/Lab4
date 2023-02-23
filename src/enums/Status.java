@@ -4,6 +4,7 @@ public enum Status {
     INFIRE("в огне", 5),INDARK("окутан мраком", 3),
     GLOW("светится", 2), IN_LIGHT_DARKNESS("свет не столько разгонял, сколько подчеркивал мрак", 5),
     SLEEP("спит", 1), NONE("ничего не происходит", 1),
+    BENT("погнута", 2),
     NONEXISTENENT("не существует", 100);
 
     final private String description;
