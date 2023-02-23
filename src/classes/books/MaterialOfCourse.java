@@ -16,8 +16,7 @@ public class MaterialOfCourse extends Text{
         this(name, Status.NONE, null, place, randomStat(10, 20), randomStat(20, 10));
     }
 
-    @Override
-    public Place getPlace() {
-        return null;
+    public int getInformation() {
+        return information;
     }
 }

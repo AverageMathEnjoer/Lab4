@@ -12,7 +12,13 @@ public abstract class Statused{
         this.status = status;
     }
     public void setStatus(Status status) {
-        this.status = status;
+        if(this.status == Status.NONEXISTENENT){
+            System.out.println("Воскрешать нельзя");
+        }
+        else if((status == Status.GLOW && this.status == Status.INDARK) || (this.status == Status.GLOW && status == Status.INDARK)){
+            this.status = Status.IN_LIGHT_DARKNESS;
+        }
+        else this.status = status;
     }
 
     public Status getStatus() {
@@ -37,5 +43,13 @@ public abstract class Statused{
     @Override
     public int hashCode() {
         return Objects.hash(getName(), getStatus());
+    }
+
+    @Override
+    public String toString() {
+        return "Statused{" +
+                "name='" + name + '\'' +
+                ", status=" + status +
+                '}';
     }
 }

@@ -18,6 +18,10 @@ public class Furniture extends Statused {
     protected Color color;
     protected boolean marked;
 
+    public void setMarked(boolean marked) {
+        this.marked = marked;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -30,5 +34,13 @@ public class Furniture extends Statused {
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), color, marked);
+    }
+
+    @Override
+    public String toString() {
+        return "Furniture{" +
+                "color=" + color +
+                ", marked=" + marked +
+                "} " + super.toString();
     }
 }

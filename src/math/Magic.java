@@ -19,4 +19,14 @@ public class Magic {
         }
         else throw new InvalidСonfinesException("Вы максимум и минимум спутали", min, max);
     }
+
+    public static int compareStats(int stat_1, int stat_2, double delta){
+        if(((1 - Math.random() * 0.1) * stat_1) - ((1 - Math.random() * 0.1) * stat_2) > delta){
+            return 1;//first win
+        }
+        else if(((1 - Math.random() * 0.1) * stat_2) - ((1 - Math.random() * 0.1) * stat_1) > delta){
+            return -1;// second win
+        }
+        else return 0;//draw
+    }
 }

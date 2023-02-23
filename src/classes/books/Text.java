@@ -15,10 +15,15 @@ public abstract class Text extends Statused implements Transportable {
     @Override
     public void changePlace(Place place, Shelf shelf) throws RuinedLogicOfBookMigrationException{
         this.shelf.decreaseCount();
+        this.place = place;
         if(shelf != null){
             if(place instanceof Room){
                 Room room = (Room) place;
                 Furniture[] furnitures = room.getFurnitures();
+                if(furnitures == null){
+                    this.shelf = null;
+                    throw new RuinedLogicOfBookMigrationException("Полка с комнатой не сходится, поэтому придется обойтись без полки");
+                }
                 boolean flag = false;
                 for(Furniture furniture: furnitures){
                     if(shelf.equals(furniture)){
@@ -27,16 +32,15 @@ public abstract class Text extends Statused implements Transportable {
                 }
                 if(!flag){
                     this.shelf = null;
-                    this.place = place;
                     throw new RuinedLogicOfBookMigrationException("Полка с комнатой не сходится, поэтому придется обойтись без полки");
                 }
             }
             else{
                 this.shelf = null;
-                this.place = place;
                 throw new RuinedLogicOfBookMigrationException("Полка с местом не сходится, поэтому придется обойтись без полки");
             }
             shelf.increaseCount();
+            this.shelf = shelf;
         }
     }
 
@@ -47,6 +51,9 @@ public abstract class Text extends Statused implements Transportable {
             if(place instanceof Room){
                 Room room = (Room) place;
                 Furniture[] furnitures = room.getFurnitures();
+                if(furnitures == null){
+                    throw new RuinedLogicOfBookCreationException("Полка с комнатой не сходится");
+                }
                 boolean flag = false;
                 for(Furniture furniture: furnitures){
                     if(shelf.equals(furniture)){
@@ -76,6 +83,11 @@ public abstract class Text extends Statused implements Transportable {
     }
     public Text(String name, Place place){
         this(name, Status.NONE, null, place, 10);
+    }
+
+    @Override
+    public Place getPlace() {
+        return place;
     }
 
     public int getKnowledge() {

@@ -12,6 +12,8 @@ import math.Graph;
 
 import math.Magic;
 
+import java.util.Objects;
+
 public abstract class Alive extends Statused implements Movable{
     protected Place place;
     protected int luck;
@@ -69,5 +71,27 @@ public abstract class Alive extends Statused implements Movable{
 
     public void snore(){
         System.out.println("хрхрхрхрххрх");
+    }
+
+    @Override
+    public String toString() {
+        return "Alive{" +
+                "place=" + place +
+                ", luck=" + luck +
+                "} " + super.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Alive)) return false;
+        if (!super.equals(o)) return false;
+        Alive alive = (Alive) o;
+        return getLuck() == alive.getLuck() && Objects.equals(getPlace(), alive.getPlace());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getPlace(), getLuck());
     }
 }

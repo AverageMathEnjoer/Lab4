@@ -54,4 +54,12 @@ public class Shelf extends Furniture{
     public int hashCode() {
         return Objects.hash(super.hashCode(), getCapacity(), count_of_books);
     }
+
+    @Override
+    public String toString() {
+        return "Shelf{" +
+                "capacity=" + capacity +
+                ", count_of_books=" + count_of_books +
+                "} " + super.toString();
+    }
 }
