@@ -1,5 +1,6 @@
 package Math;
 
+import classes.exceptions.VertexNotInGraphException;
 import interfaces.PathFinder;
 
 import java.util.Objects;
@@ -43,16 +44,31 @@ public abstract class Graph<V> {
     public void show(){
         for(V v: vertices){
             for(Edge<V> e: edges){
-                if(e.start == v){
+                if(e.start.equals(v)){
                     System.out.printf(e.toString() + " ");
                 }
             }
             System.out.printf("\n");
         }
     }
-    public boolean connected(V start, V end){
+    public boolean connected(V start, V end) throws VertexNotInGraphException {
+        if (!inGraph(start)){
+            throw new VertexNotInGraphException("Начальная вершина не в графе", start);
+        }
+        if (!inGraph(end)){
+            throw new VertexNotInGraphException("Конечная вершина не в графе", start);
+        }
         for(Edge<V> e: edges){
-            if(e.start == start && e.end == end){
+            if(e.start.equals(start) && e.end.equals(end)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean inGraph(V vertex){
+        for(V v: vertices){
+            if (v.equals(vertex)) {
                 return true;
             }
         }

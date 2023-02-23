@@ -5,7 +5,7 @@ import enums.*;
 
 public final class City extends Graph<Place> {
     String title;
-    public City(Place[] vertices, Graph.Edge<Place>[] edges, String title) {
+    private City(Place[] vertices, Graph.Edge<Place>[] edges, String title) {
         super(vertices, edges);
         this.title = title;
     }
