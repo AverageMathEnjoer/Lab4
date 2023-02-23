@@ -58,4 +58,7 @@ public final class City extends Graph<Place> {
         };
         return new City(places, b_edges, "Анк-Морпорк");
     }
+    public Place[] getPlaces(){
+        return vertices.clone();
+    }
 }

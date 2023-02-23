@@ -33,13 +33,14 @@ public class Place extends Statused {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Place)) return false;
+        if (!super.equals(o)) return false;
         Place place = (Place) o;
         return Objects.equals(getDesciption(), place.getDesciption());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getDesciption());
+        return Objects.hash(super.hashCode(), getDesciption());
     }
 
     @Override

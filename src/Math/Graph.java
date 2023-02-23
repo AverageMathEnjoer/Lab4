@@ -51,19 +51,19 @@ public abstract class Graph<V> {
             System.out.printf("\n");
         }
     }
-    public boolean connected(V start, V end) throws VertexNotInGraphException {
+    public Edge<V> connected(V start, V end) throws VertexNotInGraphException {
         if (!inGraph(start)){
             throw new VertexNotInGraphException("Начальная вершина не в графе", start);
         }
         if (!inGraph(end)){
-            throw new VertexNotInGraphException("Конечная вершина не в графе", start);
+            throw new VertexNotInGraphException("Конечная вершина не в графе", end);
         }
         for(Edge<V> e: edges){
             if(e.start.equals(start) && e.end.equals(end)){
-                return true;
+                return e;
             }
         }
-        return false;
+        return null;
     }
 
     public boolean inGraph(V vertex){
