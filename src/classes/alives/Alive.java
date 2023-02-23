@@ -1,7 +1,9 @@
 package classes.alives;
 
 import classes.Statused;
+import classes.books.Text;
 import classes.city.Place;
+import classes.city.Shelf;
 import classes.exceptions.VertexNotInGraphException;
 import enums.Status;
 import interfaces.Movable;
@@ -38,8 +40,16 @@ public abstract class Alive extends Statused implements Movable{
     }
 
     @Override
-    public void moveIt(Graph<Place> graph, Place place, Transportable obj) {
-        //Это потом
+    public void moveIt(Graph<Place> graph, Place place, Transportable obj, Shelf shelf) {
+        moveTo(graph, place);
+        if(this.place.equals(place)){
+            try {
+                obj.changePlace(place, shelf);
+            }
+            catch (Text.RuinedLogicOfBookMigrationException e){
+                System.out.printf(e.getMessage() + "\n");
+            }
+        }
     }
 
     @Override

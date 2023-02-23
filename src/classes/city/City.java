@@ -3,7 +3,7 @@ package classes.city;
 import math.*;
 
 public final class City extends Graph<Place> {
-    String title;
+    private String title;
     private City(Place[] vertices, Graph.Edge<Place>[] edges, String title) {
         super(vertices, edges);
         this.title = title;

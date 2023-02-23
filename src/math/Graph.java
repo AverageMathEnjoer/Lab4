@@ -51,6 +51,8 @@ public abstract class Graph<V> {
             System.out.printf("\n");
         }
     }
+
+
     public Edge<V> connected(V start, V end) throws VertexNotInGraphException {
         if (!inGraph(start)){
             throw new VertexNotInGraphException("Начальная вершина не в графе", start);

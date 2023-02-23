@@ -1,4 +1,5 @@
 import classes.alives.Alive;
+import classes.books.MaterialOfCourse;
 import classes.city.City;
 import classes.city.Place;
 
@@ -19,5 +20,6 @@ public class Main {
         System.out.println(chel.getPlace());
         Alive gigachad = new Alive("Чад", a);
         gigachad.moveTo(ankMorpork, b); */
+        MaterialOfCourse book = new MaterialOfCourse("Книжка", places[5]);
     }
 }

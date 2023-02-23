@@ -21,4 +21,8 @@ public class Room extends Place{
         volume = STANDART_VOLUME;
         color = Color.NONE;
     }
+
+    public Furniture[] getFurnitures() {
+        return furnitures.clone();
+    }
 }
