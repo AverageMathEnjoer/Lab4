@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Room extends Place{
-    final double STANDART_VOLUME = 144;
+    private static final double STANDART_VOLUME = 144;
     private double volume;
     private Furniture[] furnitures;
     private Color color;
