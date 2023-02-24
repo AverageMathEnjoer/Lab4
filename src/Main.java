@@ -1,4 +1,5 @@
 import classes.alives.Alive;
+import classes.alives.Orangutan;
 import classes.books.MagicText;
 import classes.books.MaterialOfCourse;
 import classes.city.City;
@@ -14,16 +15,9 @@ public class Main {
         City ankMorpork = buildCity();
         ankMorpork.show();
         Place[] places = ankMorpork.getPlaces();
-        /* Alive chel = new Alive("Мужик", places[3]);
-        System.out.println(chel.getPlace());
-        chel.moveTo(ankMorpork, places[4]);
-        System.out.println(chel.getPlace());
-        Place a = new Place("Где-то");
-        Place b = new Place("другое где-то");
-        chel.moveTo(ankMorpork, a);
-        System.out.println(chel.getPlace());
-        Alive gigachad = new Alive("Чад", a);
-        gigachad.moveTo(ankMorpork, b); */
+        Orangutan librarian = new Orangutan("Книженосец",Status.NONE, places[2], 10);
+        librarian.findPath(ankMorpork);
+        System.out.println(librarian.getPlace());
         MaterialOfCourse book = new MaterialOfCourse("Книжка", Status.NONE,((Shelf)((Room) places[3]).getFurnitures()[0]), places[3], 10, 10);
         System.out.println(book.getPlace());
         MagicText spell = new MagicText("Спелл", Status.NONE, ((Shelf)((Room) places[3]).getFurnitures()[0]), places[4], 10, Status.GLOW);

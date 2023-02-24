@@ -8,7 +8,6 @@ import java.util.Objects;
 public abstract class Graph<V> {
     protected V[] vertices;
     protected Edge<V>[] edges;
-    PathFinder vagabond;
     public static class Edge<V>{
         V start;
         V end;

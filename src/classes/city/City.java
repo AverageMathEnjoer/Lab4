@@ -1,9 +1,11 @@
 package classes.city;
 
+import interfaces.PathFinder;
 import math.*;
 
 public final class City extends Graph<Place> {
     private String title;
+    PathFinder vagabond;
     private City(Place[] vertices, Graph.Edge<Place>[] edges, String title) {
         super(vertices, edges);
         this.title = title;
