@@ -1,4 +1,5 @@
 import classes.alives.Alive;
+import classes.alives.Guard;
 import classes.alives.Orangutan;
 import classes.books.MagicText;
 import classes.books.MaterialOfCourse;
@@ -8,6 +9,7 @@ import classes.city.Place;
 import classes.city.Room;
 import classes.city.Shelf;
 import classes.exceptions.VertexNotInGraphException;
+import enums.Rank;
 import enums.Status;
 import interfaces.PathFinder;
 import interfaces.Transportable;
@@ -35,7 +37,7 @@ public class Main {
                     moveTo(city, places[num]);
                     stamina -= Magic.randDrop(100.0d, 0.77);
                 }
-                System.out.println("Бродяга устал. Отсановился в " + this.place);
+                System.out.println("Бродяга устал. Остановился в " + this.place);
             }
 
             @Override
@@ -67,6 +69,10 @@ public class Main {
             }
         };
         vagabond.findPath(ankMorpork);
+        Guard guard1 = new Guard("Морковка", Status.NONE, places[11], 10, Rank.CONSTABLE);
+        Guard guard2 = new Guard("Ваймс", Status.NONE, places[11], 10, Rank.CAPTAIN);
+        guard2.raiseMePlease(guard1);
+        guard1.raiseMePlease(guard2);
         MaterialOfCourse book = new MaterialOfCourse("Книжка", Status.NONE,((Shelf)((Room) places[3]).getFurnitures()[0]), places[3], 10, 10);
         System.out.println(book.getPlace());
         MagicText spell = new MagicText("Спелл", Status.NONE, ((Shelf)((Room) places[3]).getFurnitures()[0]), places[4], 10, Status.GLOW);
