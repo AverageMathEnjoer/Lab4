@@ -17,7 +17,6 @@ public class Orangutan extends StrangeCreature implements PathFinder {
     public void findPath(City city) {
         while(place.getName().contains("иблио") && findNextEdge(city, this.place)){}
         System.out.println("Библиотекарь потерялся");
-
     }
     private boolean findNextEdge(City city, Place place){
         Place[] places = city.getPlaces();
