@@ -8,8 +8,8 @@ import java.util.Objects;
 import static math.Magic.chanceMath;
 
 public class Shelf extends Furniture{
-    int capacity = 0;
-    int count_of_books;
+    private int capacity = 0;
+    private int count_of_books;
 
     Shelf(String name, Status status, Color color, int capacity){
         super(name, status, color);

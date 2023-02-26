@@ -16,7 +16,7 @@ public class Furniture extends Statused {
         this.color = Color.NONE;
     }
     protected Color color;
-    protected boolean marked;
+    protected boolean marked = false;
 
     public void setMarked(boolean marked) {
         this.marked = marked;

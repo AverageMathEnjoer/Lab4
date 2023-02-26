@@ -7,6 +7,7 @@ import classes.city.Shelf;
 import classes.exceptions.VertexNotInGraphException;
 import enums.Status;
 import interfaces.Movable;
+import interfaces.Sounding;
 import interfaces.Transportable;
 import math.Graph;
 
@@ -14,7 +15,7 @@ import math.Magic;
 
 import java.util.Objects;
 
-public abstract class Alive extends Statused implements Movable{
+public abstract class Alive extends Statused implements Movable, Sounding {
     protected Place place;
     protected int luck;
     @Override

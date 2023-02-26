@@ -1,20 +1,9 @@
-import classes.alives.Alive;
-import classes.alives.Guard;
-import classes.alives.Orangutan;
-import classes.books.MagicText;
-import classes.books.MaterialOfCourse;
-import classes.books.Text;
-import classes.city.City;
-import classes.city.Place;
-import classes.city.Room;
-import classes.city.Shelf;
-import classes.exceptions.VertexNotInGraphException;
-import enums.Rank;
-import enums.Status;
-import interfaces.PathFinder;
-import interfaces.Transportable;
-import math.Graph;
-import math.Magic;
+import classes.alives.*;
+import classes.books.*;
+import classes.city.*;
+import enums.*;
+import interfaces.*;
+import math.*;
 
 import static classes.city.City.buildCity;
 
